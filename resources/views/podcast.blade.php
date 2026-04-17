@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>ILOGE | The Diary of Iloge Podcast</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#2a2a2a",
+              "surface-container-lowest": "#0e0e0e",
+              "surface-container-low": "#1c1b1b",
+              "outline": "#99907c",
+              "on-primary": "#3a3000",
+              "secondary-container": "#474746",
+              "surface-container-highest": "#353534",
+              "surface": "#131313",
+              "surface-container": "#201f1f",
+              "on-secondary": "#313030",
+              "secondary-fixed": "#e5e2e1",
+              "on-background": "#e5e2e1",
+              "surface-variant": "#353534",
+              "on-secondary-container": "#b7b5b4",
+              "outline-variant": "#4d4635",
+              "primary": "#f1cc19",
+              "background": "#131313",
+              "on-surface": "#e5e2e1",
+              "primary-fixed-dim": "#e8c408",
+              "on-surface-variant": "#d0c5af"
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem"
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .liquid-gold-gradient {
+        background: linear-gradient(135deg, #f1cc19 0%, #d2b100 100%);
+      }
+      .glass-nav {
+        background: rgba(19, 19, 19, 0.6);
+        backdrop-filter: blur(30px);
+      }
+      .rim-light {
+        box-shadow: inset 0.5px 0.5px 0px 0px rgba(58, 57, 57, 0.5);
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-[0_40px_40px_-10px_rgba(229,226,225,0.05)]">
+    <div class="relative flex justify-between items-center px-6 md:px-12 py-6 w-full max-w-[1920px] mx-auto">
+        <a class="text-2xl font-bold tracking-tighter text-[#e5e2e1] font-headline" href="{{ url('/') }}">ILOGE</a>
+        <div class="hidden xl:flex items-center gap-10 font-headline tracking-tight text-sm">
+            <a class="text-[#e5e2e1] hover:text-[#f1cc19] transition-colors" href="{{ url('/') }}">Home</a>
+            <div class="relative group">
+                <button class="text-[#e5e2e1] hover:text-[#f1cc19] transition-colors inline-flex items-center gap-1" type="button">
+                    About
+                    <span class="material-symbols-outlined text-base leading-none">expand_more</span>
+                </button>
+                <div class="absolute left-0 top-full pt-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-300">
+                    <div class="min-w-48 bg-[#131313]/95 backdrop-blur-2xl border border-white/10 rounded-lg shadow-2xl py-3 uppercase">
+                        <a class="block px-5 py-3 text-xs tracking-widest text-[#e5e2e1]/70 hover:text-[#f1cc19] hover:bg-white/5 transition-all" href="{{ url('/speaker') }}">Speaker</a>
+                        <a class="block px-5 py-3 text-xs tracking-widest text-[#e5e2e1]/70 hover:text-[#f1cc19] hover:bg-white/5 transition-all" href="{{ url('/investor') }}">Investor</a>
+                        <a class="block px-5 py-3 text-xs tracking-widest text-[#e5e2e1]/70 hover:text-[#f1cc19] hover:bg-white/5 transition-all" href="{{ url('/leader') }}">Leader</a>
+                    </div>
+                </div>
+            </div>
+            <a class="text-[#e5e2e1] hover:text-[#f1cc19] transition-colors" href="{{ url('/pressroom') }}">Press Room</a>
+            <div class="relative group">
+                <button class="text-[#f1cc19] font-bold border-b-2 border-[#f1cc19] pb-1 inline-flex items-center gap-1" type="button">
+                    Diary of Iloge
+                    <span class="material-symbols-outlined text-base leading-none">expand_more</span>
+                </button>
+                <div class="absolute left-0 top-full pt-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-300">
+                    <div class="min-w-56 bg-[#131313]/95 backdrop-blur-2xl border border-white/10 rounded-lg shadow-2xl py-3 uppercase">
+                        <a class="block px-5 py-3 text-xs tracking-widest text-[#f1cc19] bg-white/5 transition-all" href="{{ url('/podcast') }}">Podcast</a>
+                        <a class="block px-5 py-3 text-xs tracking-widest text-[#e5e2e1]/70 hover:text-[#f1cc19] hover:bg-white/5 transition-all" href="#">Blog</a>
+                        <a class="block px-5 py-3 text-xs tracking-widest text-[#e5e2e1]/70 hover:text-[#f1cc19] hover:bg-white/5 transition-all" href="#">Team</a>
+                        <a class="block px-5 py-3 text-xs tracking-widest text-[#e5e2e1]/70 hover:text-[#f1cc19] hover:bg-white/5 transition-all" href="#">Gallery</a>
+                        <a class="block px-5 py-3 text-xs tracking-widest text-[#e5e2e1]/70 hover:text-[#f1cc19] hover:bg-white/5 transition-all" href="#">Testimonials</a>
+                    </div>
+                </div>
+            </div>
+            <a class="text-[#e5e2e1] hover:text-[#f1cc19] transition-colors" href="#">Shop</a>
+            <a class="text-[#e5e2e1] hover:text-[#f1cc19] transition-colors" href="#subscribe">Contact</a>
+        </div>
+        <div class="flex items-center gap-4 text-[#f1cc19]">
+            <a class="hover:opacity-80 transition-opacity active:scale-95 duration-200" href="#episodes" aria-label="Episodes">
+                <span class="material-symbols-outlined">podcasts</span>
+            </a>
+            <a class="hover:opacity-80 transition-opacity active:scale-95 duration-200" href="#subscribe" aria-label="Subscribe">
+                <span class="material-symbols-outlined">headphones</span>
+            </a>
+            <details class="xl:hidden">
+                <summary class="list-none cursor-pointer flex h-10 w-10 items-center justify-center rounded-md border border-white/10 bg-white/5 text-on-surface hover:text-primary hover:bg-white/10 transition-all [&::-webkit-details-marker]:hidden">
+                    <span class="material-symbols-outlined">menu</span>
+                </summary>
+                <div class="absolute right-6 top-full mt-3 w-[min(22rem,calc(100vw-3rem))] bg-[#131313]/95 backdrop-blur-2xl border border-white/10 rounded-lg shadow-2xl p-5">
+                    <div class="flex flex-col gap-1 font-headline text-sm uppercase tracking-widest">
+                        <a class="text-[#e5e2e1]/80 hover:text-[#f1cc19] py-3 transition-colors" href="{{ url('/') }}">Home</a>
+                        <details class="border-t border-white/5 py-2">
+                            <summary class="list-none cursor-pointer flex items-center justify-between text-[#e5e2e1]/80 hover:text-[#f1cc19] py-3 [&::-webkit-details-marker]:hidden">About <span class="material-symbols-outlined text-base">expand_more</span></summary>
+                            <div class="flex flex-col pl-4 pb-2">
+                                <a class="py-2 text-xs text-[#e5e2e1]/60 hover:text-[#f1cc19]" href="{{ url('/speaker') }}">Speaker</a>
+                                <a class="py-2 text-xs text-[#e5e2e1]/60 hover:text-[#f1cc19]" href="{{ url('/investor') }}">Investor</a>
+                                <a class="py-2 text-xs text-[#e5e2e1]/60 hover:text-[#f1cc19]" href="{{ url('/leader') }}">Leader</a>
+                            </div>
+                        </details>
+                        <a class="text-[#e5e2e1]/80 hover:text-[#f1cc19] py-3 border-t border-white/5 transition-colors" href="{{ url('/pressroom') }}">Press Room</a>
+                        <details class="border-t border-white/5 py-2" open>
+                            <summary class="list-none cursor-pointer flex items-center justify-between text-[#f1cc19] py-3 [&::-webkit-details-marker]:hidden">Diary of Iloge <span class="material-symbols-outlined text-base">expand_more</span></summary>
+                            <div class="flex flex-col pl-4 pb-2">
+                                <a class="py-2 text-xs text-[#f1cc19]" href="{{ url('/podcast') }}">Podcast</a>
+                                <a class="py-2 text-xs text-[#e5e2e1]/60 hover:text-[#f1cc19]" href="#">Blog</a>
+                                <a class="py-2 text-xs text-[#e5e2e1]/60 hover:text-[#f1cc19]" href="#">Team</a>
+                                <a class="py-2 text-xs text-[#e5e2e1]/60 hover:text-[#f1cc19]" href="#">Gallery</a>
+                                <a class="py-2 text-xs text-[#e5e2e1]/60 hover:text-[#f1cc19]" href="#">Testimonials</a>
+                            </div>
+                        </details>
+                        <a class="text-[#e5e2e1]/80 hover:text-[#f1cc19] py-3 border-t border-white/5 transition-colors" href="#">Shop</a>
+                        <a class="text-[#e5e2e1]/80 hover:text-[#f1cc19] py-3 border-t border-white/5 transition-colors" href="#subscribe">Contact</a>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </div>
+</nav>
+
+<main class="pt-24">
+    <section class="relative min-h-[870px] w-full overflow-hidden flex items-center px-6 md:px-12">
+        <div class="absolute inset-0 z-0">
+            <img alt="Professional portrait" class="w-full h-full object-cover grayscale brightness-50 contrast-125" data-alt="Cinematic portrait of a distinguished professional African man in a dark tailored suit, dramatic low-key lighting, deep shadows, authoritative presence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAczzIAc2Sa8uTFH5nkYChhyZ9qFb2sEyKUs3OWsG-Z_QhIqde-GxNeUDeg9M9C1uyDnrZ28rlOfPE7oIF4aIR1xI_-0uj5gXPPCq1xBF8ysLyGfR_8iAeg9yezTELtnQMngR2tHi_bEJ6tKjqzMx7jsB7rHWz4M7qFc8oWlxFsxZveDZZkxq_B5mvvaJL3wqlXTZvYekBO5F-SxgfsmuyNVfIP_UfFSMuura8Jqy0_mKU3SqRkt01R3uMAUVH-E-ZjVYXb9oL6moXe"/>
+            <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/40 to-transparent"></div>
+        </div>
+        <div class="relative z-10 max-w-4xl">
+            <span class="text-primary tracking-[0.3em] uppercase text-xs font-semibold mb-4 block">Diary of Iloge: Featured Masterclass</span>
+            <h1 class="font-headline text-6xl md:text-8xl font-extrabold tracking-tighter text-on-surface leading-[0.9] mb-8">
+                The Architecture <br/> of <span class="text-primary italic">Shadows</span>
+            </h1>
+            <p class="text-on-surface-variant text-lg md:text-xl max-w-2xl leading-relaxed mb-10 font-light">
+                An exclusive deep-dive into the silence of leadership. Discover how the world's most influential architects of industry build empires away from the noise.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6">
+                <a class="liquid-gold-gradient px-8 py-4 rounded-md text-on-primary font-bold tracking-tight hover:opacity-90 transition-all flex items-center justify-center gap-3" href="#episodes">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                    Listen Now
+                </a>
+                <a class="bg-surface-variant/20 backdrop-blur-xl border border-outline-variant/30 px-8 py-4 rounded-md text-on-surface font-semibold hover:bg-surface-variant/40 transition-all text-center" href="#episodes">
+                    View Show Notes
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 px-6 md:px-12 bg-surface-container-lowest" id="episodes">
+        <div class="max-w-[1920px] mx-auto flex flex-col md:flex-row md:items-center justify-between gap-8 border-b border-outline-variant/10 pb-8">
+            <div class="flex gap-8 overflow-x-auto">
+                <button class="text-primary font-bold border-b-2 border-primary pb-2 whitespace-nowrap">All Episodes</button>
+                <button class="text-on-surface-variant hover:text-on-surface transition-colors pb-2 whitespace-nowrap">Tech Innovation</button>
+                <button class="text-on-surface-variant hover:text-on-surface transition-colors pb-2 whitespace-nowrap">Leadership Blueprints</button>
+                <button class="text-on-surface-variant hover:text-on-surface transition-colors pb-2 whitespace-nowrap">Investment Insights</button>
+                <button class="text-on-surface-variant hover:text-on-surface transition-colors pb-2 whitespace-nowrap">Global Strategy</button>
+            </div>
+            <div class="flex items-center gap-4 text-on-surface-variant">
+                <span class="material-symbols-outlined">tune</span>
+                <span class="text-sm font-medium">Filter</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 md:px-12 bg-surface">
+        <div class="max-w-[1920px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-2 group cursor-pointer bg-surface-container-low rounded-xl overflow-hidden rim-light transition-transform hover:-translate-y-2">
+                    <div class="flex flex-col md:flex-row h-full">
+                        <div class="w-full md:w-1/2 h-64 md:h-auto overflow-hidden">
+                            <img alt="Tech Office" class="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-700" data-alt="Abstract architectural lines of a futuristic glass building reflecting dark storm clouds, high contrast black and white." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9jRqOn3Ol0QSj4qJ1hwqktyBBwaDdv1QvPgOKCQjRjA7Lo4e15EhDaH0BrfGYtOl8H6qOU0-jtpL6aI4Mo3uv7sjwWAJKB4uAuWC-1vrgRLtNb-7FwwF2wyTNutBGOKLCFuCMVVQ2MTNltwvM8Lk4GZS-uiR9OFRCF81L4KgXgnUIGoEnWh7e0-yGmIawDwVlWQP0bijY8lJqdSe6jXS5mnZChP-ykk5z9OqCVZz5RhxmLgbm_Y_KbgrCDrhnmDrJ9GdRWWwMGWp2"/>
+                        </div>
+                        <div class="w-full md:w-1/2 p-10 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start gap-4 mb-6">
+                                    <span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest rounded">Tech Innovation</span>
+                                    <span class="text-on-surface-variant text-xs">OCT 24, 2024</span>
+                                </div>
+                                <h3 class="font-headline text-3xl font-bold text-on-surface mb-4 leading-tight group-hover:text-primary transition-colors">The Quantum Leap: AI Beyond the Hype Cycle</h3>
+                                <p class="text-on-surface-variant font-light leading-relaxed mb-6">
+                                    In this episode, we dissect the practical applications of generative intelligence in sovereign states and global logistics frameworks.
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full border border-primary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+                                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                                </div>
+                                <span class="font-bold text-sm">48 MINS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group cursor-pointer bg-surface-container-low rounded-xl p-8 rim-light transition-transform hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="mb-6 h-48 overflow-hidden rounded-lg">
+                            <img alt="Investment" class="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-700" data-alt="Close up of a gold luxury watch on a dark surface, symbolizing wealth and time, minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG-xYqgzNm6cD9s0RTjErlaIOVgroZkdPlzSVoV8y7xJP97ECHOF_p_OX2AcsnRsIdz5ROrqxuz5sYnIxeH0js23i-LFbNNbDIgwgJ3bO12Bd-LT2Tp4-Y166DiC6QYuFoy-By5Iaa1fraz1lagxYuNKuU9XYMyfycLRluX-V7dnCDNWAl-jjTSFdYRjcoX3zaIBEQ59LKcM1ZNl-x2spUfKkDjiPTUXcvFkoD5qSjje6VMovrBbN8MyfUjAclH9UKFv0Vn7rNErLm"/>
+                        </div>
+                        <div class="flex justify-between items-start gap-4 mb-4">
+                            <span class="px-3 py-1 bg-secondary-container/30 text-on-secondary-container text-[10px] font-bold uppercase tracking-widest rounded">Investment</span>
+                            <span class="text-on-surface-variant text-xs">OCT 18, 2024</span>
+                        </div>
+                        <h3 class="font-headline text-2xl font-bold text-on-surface group-hover:text-primary transition-colors">The Sovereign Portfolio</h3>
+                    </div>
+                    <div class="mt-8 flex items-center justify-between">
+                        <span class="text-sm font-bold">32 MINS</span>
+                        <span class="material-symbols-outlined text-primary">play_circle</span>
+                    </div>
+                </div>
+
+                <div class="group cursor-pointer bg-surface-container-low rounded-xl p-8 rim-light transition-transform hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="mb-6 h-48 overflow-hidden rounded-lg">
+                            <img alt="Leadership" class="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-700" data-alt="Top down view of a minimalist boardroom table with one single notebook and a gold pen, dramatic shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmqy9lAhXVKIwyl6cRsPnMcaZCDc-7HppB2uPNWJRFjotk73N7GVjDwH3isRGOiFR1V_YiuUOrMVfkxZKSN04YHD0wn77L9VWuKyAugZmHxlfIT-ISQ1FbL0-yppQQpKWdITAODLtkwuNCvk1viWaKJSpsSXvcKx4nEGGKUINPi9xjQcD3k7ObHL9XEgdhPEpr304RyTxaC3p0hExE0h6P3D7Ei3a7E30FBlMAiCRa9a2RYdX5YLGvzHNyTevtjGPb0j9yFttVzTT6"/>
+                        </div>
+                        <div class="flex justify-between items-start gap-4 mb-4">
+                            <span class="px-3 py-1 bg-secondary-container/30 text-on-secondary-container text-[10px] font-bold uppercase tracking-widest rounded">Leadership</span>
+                            <span class="text-on-surface-variant text-xs">OCT 12, 2024</span>
+                        </div>
+                        <h3 class="font-headline text-2xl font-bold text-on-surface group-hover:text-primary transition-colors">Blueprints of Power</h3>
+                    </div>
+                    <div class="mt-8 flex items-center justify-between">
+                        <span class="text-sm font-bold">55 MINS</span>
+                        <span class="material-symbols-outlined text-primary">play_circle</span>
+                    </div>
+                </div>
+
+                <div class="group cursor-pointer bg-surface-container-low rounded-xl p-8 rim-light transition-transform hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="mb-6 h-48 overflow-hidden rounded-lg">
+                            <img alt="Strategy" class="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-700" data-alt="Dark abstract pattern resembling flowing lava or molten gold, deep textures and high contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxR3pYODphnga9V8tSbZK2A9cszttahgdISAmgkTK4DwKJv8ryciuUctP2zIjH_yIseSuOrVl3g8hDeOC_2gyzhRk_H23H1K2EQn61qkvQX61Cwa-KSeOpm3Muk_EQLKcL2cIYhqlDrVemDE01NucyDLavH874UH3HHq7KBM0mttFthR_G8i5mwtAfwJnXuT7uOBfAluXVAH3n_AeDHJZeJmYBLRMIryBN8xcYGKtBJo57uSi1h-uRk7SrSCyUhX_MUpyebQtE_H0O"/>
+                        </div>
+                        <div class="flex justify-between items-start gap-4 mb-4">
+                            <span class="px-3 py-1 bg-secondary-container/30 text-on-secondary-container text-[10px] font-bold uppercase tracking-widest rounded">Strategy</span>
+                            <span class="text-on-surface-variant text-xs">OCT 05, 2024</span>
+                        </div>
+                        <h3 class="font-headline text-2xl font-bold text-on-surface group-hover:text-primary transition-colors">The Invisible Hand</h3>
+                    </div>
+                    <div class="mt-8 flex items-center justify-between">
+                        <span class="text-sm font-bold">41 MINS</span>
+                        <span class="material-symbols-outlined text-primary">play_circle</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 px-6 md:px-12 bg-surface-container-low" id="subscribe">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="font-headline text-5xl font-black tracking-tighter text-on-surface mb-6">Never Miss an Insight.</h2>
+            <p class="text-on-surface-variant text-lg max-w-xl mx-auto mb-12 font-light">
+                Join the inner circle of global leaders. Receive episode transcripts, exclusive deep-dives, and early access to the Iloge Shop.
+            </p>
+            <form class="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto mb-16">
+                <input class="flex-1 bg-transparent border-b border-outline-variant/30 text-on-surface placeholder:text-on-surface-variant/40 py-4 focus:outline-none focus:border-primary transition-colors font-label text-sm tracking-widest" placeholder="ENTER YOUR EMAIL" type="email"/>
+                <button class="liquid-gold-gradient px-12 py-4 rounded-md text-on-primary font-bold uppercase text-xs tracking-[0.2em] hover:opacity-90 transition-all">
+                    Subscribe
+                </button>
+            </form>
+            <div class="grid grid-cols-2 sm:flex sm:justify-center gap-8 sm:gap-10">
+                <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                    <div class="w-14 h-14 rounded-full bg-surface flex items-center justify-center border border-outline-variant/20 group-hover:border-primary transition-colors">
+                        <span class="material-symbols-outlined text-on-surface group-hover:text-primary transition-colors">podcasts</span>
+                    </div>
+                    <span class="text-[10px] tracking-widest font-bold text-on-surface-variant group-hover:text-primary">SPOTIFY</span>
+                </div>
+                <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                    <div class="w-14 h-14 rounded-full bg-surface flex items-center justify-center border border-outline-variant/20 group-hover:border-primary transition-colors">
+                        <span class="material-symbols-outlined text-on-surface group-hover:text-primary transition-colors">headphones</span>
+                    </div>
+                    <span class="text-[10px] tracking-widest font-bold text-on-surface-variant group-hover:text-primary">APPLE</span>
+                </div>
+                <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                    <div class="w-14 h-14 rounded-full bg-surface flex items-center justify-center border border-outline-variant/20 group-hover:border-primary transition-colors">
+                        <span class="material-symbols-outlined text-on-surface group-hover:text-primary transition-colors">play_circle</span>
+                    </div>
+                    <span class="text-[10px] tracking-widest font-bold text-on-surface-variant group-hover:text-primary">YOUTUBE</span>
+                </div>
+                <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                    <div class="w-14 h-14 rounded-full bg-surface flex items-center justify-center border border-outline-variant/20 group-hover:border-primary transition-colors">
+                        <span class="material-symbols-outlined text-on-surface group-hover:text-primary transition-colors">rss_feed</span>
+                    </div>
+                    <span class="text-[10px] tracking-widest font-bold text-on-surface-variant group-hover:text-primary">RSS FEED</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="w-full py-20 px-6 md:px-12 bg-[#0e0e0e] border-t border-outline-variant/5">
+    <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-12">
+        <a class="text-[#e5e2e1] font-black text-2xl font-headline tracking-tighter" href="{{ url('/') }}">ILOGE</a>
+        <div class="flex flex-wrap justify-center gap-8 font-body text-sm tracking-widest uppercase">
+            <a class="text-[#e5e2e1]/40 hover:text-[#f1cc19] hover:underline transition-all" href="#">Spotify</a>
+            <a class="text-[#e5e2e1]/40 hover:text-[#f1cc19] hover:underline transition-all" href="#">Apple Podcasts</a>
+            <a class="text-[#e5e2e1]/40 hover:text-[#f1cc19] hover:underline transition-all" href="#">YouTube</a>
+            <a class="text-[#e5e2e1]/40 hover:text-[#f1cc19] hover:underline transition-all" href="#">RSS Feed</a>
+        </div>
+        <div class="text-[#e5e2e1]/40 text-[10px] tracking-[0.2em] font-medium text-center md:text-right">
+            &copy; 2024 THE SOVEREIGN CREATIVE. ALL RIGHTS RESERVED.
+        </div>
+    </div>
+</footer>
+</body>
+</html>

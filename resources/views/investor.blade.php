@@ -94,42 +94,42 @@
     </style>
 </head>
 <body class="bg-surface text-on-surface">
-<nav class="fixed top-0 w-full z-50 glass-nav">
-    <div class="relative flex justify-between items-center px-6 md:px-12 py-6 w-full max-w-screen-2xl mx-auto">
-        <a class="text-2xl font-black tracking-tighter text-[#e5e2e1]" href="{{ url('/') }}">ILOGE</a>
-        <div class="hidden xl:flex items-center space-x-8 font-headline tracking-tight text-sm uppercase">
-            <a class="text-[#e5e2e1] opacity-70 hover:opacity-100 hover:text-[#f1cc19] transition-all duration-300" href="{{ url('/') }}">Home</a>
+<nav class="fixed top-0 w-full z-50 bg-[#131313]/60 backdrop-blur-[30px] shadow-[0_40px_40px_-10px_rgba(229,226,225,0.05)] border-b border-white/5">
+    <div class="relative flex justify-between items-center px-6 md:px-12 py-6 max-w-[1920px] mx-auto">
+        <a class="text-2xl font-black tracking-tighter text-[#f1cc19] font-headline" href="{{ url('/') }}">ILOGE</a>
+        <div class="hidden xl:flex items-center gap-8 font-headline tracking-tight text-sm uppercase">
+            <a class="text-[#e5e2e1]/70 hover:text-[#f1cc19] transition-colors duration-300" href="{{ url('/') }}">Home</a>
             <div class="relative group">
-                <button class="text-[#f1cc19] border-b border-[#f1cc19] pb-1 inline-flex items-center gap-1" type="button">
+                <button class="text-[#f1cc19] border-b border-[#f1cc19] pb-1 inline-flex items-center gap-1 transition-colors duration-300" type="button">
                     About
                     <span class="material-symbols-outlined text-base leading-none">expand_more</span>
                 </button>
-                <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-300">
-                    <div class="bg-surface-container-high p-4 min-w-[160px] rounded-xl shadow-2xl border border-white/10">
-                        <a class="block py-2 text-xs opacity-70 hover:opacity-100 hover:text-[#f1cc19]" href="{{ url('/speaker') }}">Speaker</a>
-                        <a class="block py-2 text-xs text-[#f1cc19]" href="{{ url('/investor') }}">Investor</a>
-                        <a class="block py-2 text-xs opacity-70 hover:opacity-100 hover:text-[#f1cc19]" href="{{ url('/leader') }}">Leader</a>
+                <div class="absolute left-0 top-full pt-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-300">
+                    <div class="min-w-48 bg-[#131313]/95 backdrop-blur-2xl border border-white/10 rounded-lg shadow-2xl py-3">
+                        <a class="block px-5 py-3 text-xs tracking-widest text-[#e5e2e1]/70 hover:text-[#f1cc19] hover:bg-white/5 transition-all" href="{{ url('/speaker') }}">Speaker</a>
+                        <a class="block px-5 py-3 text-xs tracking-widest text-[#f1cc19] bg-white/5 transition-all" href="{{ url('/investor') }}">Investor</a>
+                        <a class="block px-5 py-3 text-xs tracking-widest text-[#e5e2e1]/70 hover:text-[#f1cc19] hover:bg-white/5 transition-all" href="{{ url('/leader') }}">Leader</a>
                     </div>
                 </div>
             </div>
-            <a class="text-[#e5e2e1] opacity-70 hover:opacity-100 hover:text-[#f1cc19] transition-all duration-300" href="{{ url('/pressroom') }}">Press Room</a>
+            <a class="text-[#e5e2e1]/70 hover:text-[#f1cc19] transition-colors duration-300" href="{{ url('/pressroom') }}">Press Room</a>
             <div class="relative group">
-                <button class="text-[#e5e2e1] opacity-70 hover:opacity-100 hover:text-[#f1cc19] transition-all duration-300 inline-flex items-center gap-1" type="button">
-                    Diary
+                <button class="text-[#e5e2e1]/70 hover:text-[#f1cc19] inline-flex items-center gap-1 transition-colors duration-300" type="button">
+                    Diary of Iloge
                     <span class="material-symbols-outlined text-base leading-none">expand_more</span>
                 </button>
-                <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-300">
-                    <div class="bg-surface-container-high p-4 min-w-[180px] rounded-xl shadow-2xl border border-white/10">
-                        <a class="block py-2 text-xs opacity-70 hover:opacity-100 hover:text-[#f1cc19]" href="{{ url('/podcast') }}">Podcast</a>
-                        <a class="block py-2 text-xs opacity-70 hover:opacity-100 hover:text-[#f1cc19]" href="#">Blog</a>
-                        <a class="block py-2 text-xs opacity-70 hover:opacity-100 hover:text-[#f1cc19]" href="#">Team</a>
-                        <a class="block py-2 text-xs opacity-70 hover:opacity-100 hover:text-[#f1cc19]" href="#">Gallery</a>
-                        <a class="block py-2 text-xs opacity-70 hover:opacity-100 hover:text-[#f1cc19]" href="#">Testimonials</a>
+                <div class="absolute left-0 top-full pt-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-300">
+                    <div class="min-w-56 bg-[#131313]/95 backdrop-blur-2xl border border-white/10 rounded-lg shadow-2xl py-3">
+                        <a class="block px-5 py-3 text-xs tracking-widest text-[#e5e2e1]/70 hover:text-[#f1cc19] hover:bg-white/5 transition-all" href="{{ url('/podcast') }}">Podcast</a>
+                        <a class="block px-5 py-3 text-xs tracking-widest text-[#e5e2e1]/70 hover:text-[#f1cc19] hover:bg-white/5 transition-all" href="{{ url('/blog') }}">Blog</a>
+                        <a class="block px-5 py-3 text-xs tracking-widest text-[#e5e2e1]/70 hover:text-[#f1cc19] hover:bg-white/5 transition-all" href="{{ url('/team') }}">Team</a>
+                        <a class="block px-5 py-3 text-xs tracking-widest text-[#e5e2e1]/70 hover:text-[#f1cc19] hover:bg-white/5 transition-all" href="{{ url('/gallery') }}">Gallery</a>
+                        <a class="block px-5 py-3 text-xs tracking-widest text-[#e5e2e1]/70 hover:text-[#f1cc19] hover:bg-white/5 transition-all" href="{{ url('/testimonials') }}">Testimonials</a>
                     </div>
                 </div>
             </div>
-            <a class="text-[#e5e2e1] opacity-70 hover:opacity-100 hover:text-[#f1cc19] transition-all duration-300" href="#">Shop</a>
-            <a class="text-[#e5e2e1] opacity-70 hover:opacity-100 hover:text-[#f1cc19] transition-all duration-300" href="#contact">Contact</a>
+            <a class="text-[#e5e2e1]/70 hover:text-[#f1cc19] transition-colors duration-300" href="{{ url('/shop') }}">Shop</a>
+            <a class="text-[#e5e2e1]/70 hover:text-[#f1cc19] transition-colors duration-300" href="{{ url('/contact') }}">Contact</a>
         </div>
         <div class="flex items-center gap-3">
             <a class="liquid-gold-gradient px-5 md:px-6 py-2 rounded-md font-headline text-xs md:text-sm font-bold text-on-primary uppercase tracking-widest active:scale-95 transition-transform" href="#pitch">
@@ -156,19 +156,19 @@
                         <a class="text-[#e5e2e1]/80 hover:text-[#f1cc19] py-3 border-t border-white/5 transition-colors" href="{{ url('/pressroom') }}">Press Room</a>
                         <details class="border-t border-white/5 py-2">
                             <summary class="list-none cursor-pointer flex items-center justify-between text-[#e5e2e1]/80 hover:text-[#f1cc19] py-3 [&::-webkit-details-marker]:hidden">
-                                Diary
+                                Diary of Iloge
                                 <span class="material-symbols-outlined text-base">expand_more</span>
                             </summary>
                             <div class="flex flex-col pl-4 pb-2">
                                 <a class="py-2 text-xs text-[#e5e2e1]/60 hover:text-[#f1cc19]" href="{{ url('/podcast') }}">Podcast</a>
-                                <a class="py-2 text-xs text-[#e5e2e1]/60 hover:text-[#f1cc19]" href="#">Blog</a>
-                                <a class="py-2 text-xs text-[#e5e2e1]/60 hover:text-[#f1cc19]" href="#">Team</a>
-                                <a class="py-2 text-xs text-[#e5e2e1]/60 hover:text-[#f1cc19]" href="#">Gallery</a>
-                                <a class="py-2 text-xs text-[#e5e2e1]/60 hover:text-[#f1cc19]" href="#">Testimonials</a>
+                                <a class="py-2 text-xs text-[#e5e2e1]/60 hover:text-[#f1cc19]" href="{{ url('/blog') }}">Blog</a>
+                                <a class="py-2 text-xs text-[#e5e2e1]/60 hover:text-[#f1cc19]" href="{{ url('/team') }}">Team</a>
+                                <a class="py-2 text-xs text-[#e5e2e1]/60 hover:text-[#f1cc19]" href="{{ url('/gallery') }}">Gallery</a>
+                                <a class="py-2 text-xs text-[#e5e2e1]/60 hover:text-[#f1cc19]" href="{{ url('/testimonials') }}">Testimonials</a>
                             </div>
                         </details>
-                        <a class="text-[#e5e2e1]/80 hover:text-[#f1cc19] py-3 border-t border-white/5 transition-colors" href="#">Shop</a>
-                        <a class="text-[#e5e2e1]/80 hover:text-[#f1cc19] py-3 border-t border-white/5 transition-colors" href="#contact">Contact</a>
+                        <a class="text-[#e5e2e1]/80 hover:text-[#f1cc19] py-3 border-t border-white/5 transition-colors" href="{{ url('/shop') }}">Shop</a>
+                        <a class="text-[#e5e2e1]/80 hover:text-[#f1cc19] py-3 border-t border-white/5 transition-colors" href="{{ url('/contact') }}">Contact</a>
                     </div>
                 </div>
             </details>
@@ -351,7 +351,7 @@
             <a class="text-[#e5e2e1]/40 hover:text-[#f1cc19] transition-colors" href="#">Press Kit</a>
         </div>
         <div class="text-[#e5e2e1]/40 text-[10px] tracking-[0.2em]">
-            &copy; 2024 THE SOVEREIGN CREATIVE. ALL RIGHTS RESERVED.
+            &copy; 2026 Iloge. Designed &amp; developed by codewitheugene
         </div>
     </div>
 </footer>

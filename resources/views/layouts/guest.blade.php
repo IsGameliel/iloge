@@ -25,6 +25,10 @@
             <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
                 {{ $slot }}
             </div>
+
+            <footer class="mt-8 pb-6 px-6 text-center text-xs text-gray-500">
+                &copy; 2026 Iloge. Designed &amp; developed by codewitheugene
+            </footer>
         </div>
     </body>
 </html>

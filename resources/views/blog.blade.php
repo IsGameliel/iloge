@@ -259,10 +259,20 @@
             <p class="text-on-surface-variant max-w-xl text-lg font-light mb-12">
                 Join an exclusive circle of visionary leaders and thinkers receiving weekly dispatches on strategy, tech, and legacy building.
             </p>
-            <form class="w-full max-w-md flex flex-col gap-4">
-                <div class="relative group">
-                    <input class="w-full bg-transparent border-b border-outline-variant/30 py-4 focus:border-primary transition-colors focus:ring-0 text-lg" placeholder="Email Address" type="email"/>
+            @if (session('newsletter_success'))
+                <div class="mb-6 w-full max-w-md rounded-xl border border-primary/20 bg-primary/10 px-5 py-4 text-sm font-semibold text-primary">
+                    {{ session('newsletter_success') }}
                 </div>
+            @endif
+            <form class="w-full max-w-md flex flex-col gap-4" method="post" action="{{ route('newsletter.store') }}">
+                @csrf
+                <input type="hidden" name="source" value="blog">
+                <div class="relative group">
+                    <input class="w-full bg-transparent border-b border-outline-variant/30 py-4 focus:border-primary transition-colors focus:ring-0 text-lg" name="email" placeholder="Email Address" type="email" value="{{ old('email') }}" required/>
+                </div>
+                @error('email')
+                    <p class="text-sm text-error">{{ $message }}</p>
+                @enderror
                 <button class="liquid-gold text-on-primary py-5 rounded-lg font-headline font-bold text-lg tracking-tight mt-4" type="submit">
                     Subscribe to Dispatch
                 </button>

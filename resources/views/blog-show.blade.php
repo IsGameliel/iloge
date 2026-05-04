@@ -173,10 +173,20 @@
                 <div class="relative z-10 max-w-xl">
                     <h3 class="font-headline text-3xl font-bold mb-4">Sovereign Insights</h3>
                     <p class="text-neutral-400 mb-8">Receive bi-weekly architectural breakdowns of power, innovation, and creative sovereignty.</p>
-                    <form class="flex flex-col sm:flex-row gap-4">
-                        <input class="flex-1 bg-transparent border-b border-outline-variant py-3 focus:outline-none focus:border-primary transition-colors text-on-surface placeholder:text-neutral-600" placeholder="Your executive email" type="email"/>
-                        <button class="liquid-gold-gradient text-on-primary px-8 py-3 rounded-md font-bold text-sm uppercase tracking-widest hover:shadow-[0_0_20px_rgba(241,204,25,0.3)] transition-all">Subscribe</button>
+                    @if (session('newsletter_success'))
+                        <div class="mb-6 rounded-xl border border-primary/20 bg-primary/10 px-5 py-4 text-sm font-semibold text-primary">
+                            {{ session('newsletter_success') }}
+                        </div>
+                    @endif
+                    <form class="flex flex-col sm:flex-row gap-4" method="post" action="{{ route('newsletter.store') }}">
+                        @csrf
+                        <input type="hidden" name="source" value="blog_article">
+                        <input class="flex-1 bg-transparent border-b border-outline-variant py-3 focus:outline-none focus:border-primary transition-colors text-on-surface placeholder:text-neutral-600" name="email" placeholder="Your executive email" type="email" value="{{ old('email') }}" required/>
+                        <button class="liquid-gold-gradient text-on-primary px-8 py-3 rounded-md font-bold text-sm uppercase tracking-widest hover:shadow-[0_0_20px_rgba(241,204,25,0.3)] transition-all" type="submit">Subscribe</button>
                     </form>
+                    @error('email')
+                        <p class="mt-4 text-sm text-error">{{ $message }}</p>
+                    @enderror
                 </div>
             </section>
         </article>

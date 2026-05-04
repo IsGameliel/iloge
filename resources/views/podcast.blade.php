@@ -160,13 +160,13 @@
         <div class="relative z-10 max-w-4xl">
             <span class="text-primary tracking-[0.3em] uppercase text-xs font-semibold mb-4 block">Diary of Iloge: Featured Masterclass</span>
             <h1 class="font-headline text-6xl md:text-8xl font-extrabold tracking-tighter text-on-surface leading-[0.9] mb-8">
-                The Architecture <br/> of <span class="text-primary italic">Shadows</span>
+                {{ $featuredPodcastEpisode?->title ?? 'The Architecture of Shadows' }}
             </h1>
             <p class="text-on-surface-variant text-lg md:text-xl max-w-2xl leading-relaxed mb-10 font-light">
-                An exclusive deep-dive into the silence of leadership. Discover how the world's most influential architects of industry build empires away from the noise.
+                {{ $featuredPodcastEpisode?->description ?? "An exclusive deep-dive into the silence of leadership. Discover how the world's most influential architects of industry build empires away from the noise." }}
             </p>
             <div class="flex flex-col sm:flex-row gap-6">
-                <a class="liquid-gold-gradient px-8 py-4 rounded-md text-on-primary font-bold tracking-tight hover:opacity-90 transition-all flex items-center justify-center gap-3" href="#episodes">
+                <a class="liquid-gold-gradient px-8 py-4 rounded-md text-on-primary font-bold tracking-tight hover:opacity-90 transition-all flex items-center justify-center gap-3" href="{{ $featuredPodcastEpisode?->youtube_url ?? '#episodes' }}" @if($featuredPodcastEpisode) target="_blank" rel="noreferrer" @endif>
                     <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
                     Listen Now
                 </a>
@@ -181,10 +181,9 @@
         <div class="max-w-[1920px] mx-auto flex flex-col md:flex-row md:items-center justify-between gap-8 border-b border-outline-variant/10 pb-8">
             <div class="flex gap-8 overflow-x-auto">
                 <button class="text-primary font-bold border-b-2 border-primary pb-2 whitespace-nowrap">All Episodes</button>
-                <button class="text-on-surface-variant hover:text-on-surface transition-colors pb-2 whitespace-nowrap">Tech Innovation</button>
-                <button class="text-on-surface-variant hover:text-on-surface transition-colors pb-2 whitespace-nowrap">Leadership Blueprints</button>
-                <button class="text-on-surface-variant hover:text-on-surface transition-colors pb-2 whitespace-nowrap">Investment Insights</button>
-                <button class="text-on-surface-variant hover:text-on-surface transition-colors pb-2 whitespace-nowrap">Global Strategy</button>
+                @foreach ($podcastCategories as $category)
+                    <button class="text-on-surface-variant hover:text-on-surface transition-colors pb-2 whitespace-nowrap">{{ $category }}</button>
+                @endforeach
             </div>
             <div class="flex items-center gap-4 text-on-surface-variant">
                 <span class="material-symbols-outlined">tune</span>
@@ -196,83 +195,67 @@
     <section class="py-24 px-6 md:px-12 bg-surface">
         <div class="max-w-[1920px] mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                <div class="lg:col-span-2 group cursor-pointer bg-surface-container-low rounded-xl overflow-hidden rim-light transition-transform hover:-translate-y-2">
-                    <div class="flex flex-col md:flex-row h-full">
-                        <div class="w-full md:w-1/2 h-64 md:h-auto overflow-hidden">
-                            <img alt="Tech Office" class="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-700" data-alt="Abstract architectural lines of a futuristic glass building reflecting dark storm clouds, high contrast black and white." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9jRqOn3Ol0QSj4qJ1hwqktyBBwaDdv1QvPgOKCQjRjA7Lo4e15EhDaH0BrfGYtOl8H6qOU0-jtpL6aI4Mo3uv7sjwWAJKB4uAuWC-1vrgRLtNb-7FwwF2wyTNutBGOKLCFuCMVVQ2MTNltwvM8Lk4GZS-uiR9OFRCF81L4KgXgnUIGoEnWh7e0-yGmIawDwVlWQP0bijY8lJqdSe6jXS5mnZChP-ykk5z9OqCVZz5RhxmLgbm_Y_KbgrCDrhnmDrJ9GdRWWwMGWp2"/>
-                        </div>
-                        <div class="w-full md:w-1/2 p-10 flex flex-col justify-between">
+                @forelse ($podcastEpisodes as $episode)
+                    <a class="{{ $loop->first ? 'lg:col-span-2 overflow-hidden p-0' : 'p-8' }} group bg-surface-container-low rounded-xl rim-light transition-transform hover:-translate-y-2 flex flex-col justify-between" href="{{ $episode->youtube_url }}" target="_blank" rel="noreferrer">
+                        @if ($loop->first)
+                            <div class="flex flex-col md:flex-row h-full">
+                                <div class="w-full md:w-1/2 h-64 md:h-auto overflow-hidden">
+                                    <img alt="{{ $episode->title }}" class="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-700" src="{{ $episode->display_thumbnail }}"/>
+                                </div>
+                                <div class="w-full md:w-1/2 p-10 flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex justify-between items-start gap-4 mb-6">
+                                            <span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest rounded">{{ $episode->category }}</span>
+                                            <span class="text-on-surface-variant text-xs">{{ optional($episode->published_at)->format('M d, Y') }}</span>
+                                        </div>
+                                        <h3 class="font-headline text-3xl font-bold text-on-surface mb-4 leading-tight group-hover:text-primary transition-colors">{{ $episode->title }}</h3>
+                                        <p class="text-on-surface-variant font-light leading-relaxed mb-6">{{ $episode->description }}</p>
+                                    </div>
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-12 h-12 rounded-full border border-primary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+                                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                                        </div>
+                                        <span class="font-bold text-sm">{{ $episode->duration ?: 'WATCH' }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        @else
                             <div>
-                                <div class="flex justify-between items-start gap-4 mb-6">
-                                    <span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest rounded">Tech Innovation</span>
-                                    <span class="text-on-surface-variant text-xs">OCT 24, 2024</span>
+                                <div class="mb-6 h-48 overflow-hidden rounded-lg">
+                                    <img alt="{{ $episode->title }}" class="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-700" src="{{ $episode->display_thumbnail }}"/>
                                 </div>
-                                <h3 class="font-headline text-3xl font-bold text-on-surface mb-4 leading-tight group-hover:text-primary transition-colors">The Quantum Leap: AI Beyond the Hype Cycle</h3>
-                                <p class="text-on-surface-variant font-light leading-relaxed mb-6">
-                                    In this episode, we dissect the practical applications of generative intelligence in sovereign states and global logistics frameworks.
-                                </p>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full border border-primary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
-                                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                                <div class="flex justify-between items-start gap-4 mb-4">
+                                    <span class="px-3 py-1 bg-secondary-container/30 text-on-secondary-container text-[10px] font-bold uppercase tracking-widest rounded">{{ $episode->category }}</span>
+                                    <span class="text-on-surface-variant text-xs">{{ optional($episode->published_at)->format('M d, Y') }}</span>
                                 </div>
-                                <span class="font-bold text-sm">48 MINS</span>
+                                <h3 class="font-headline text-2xl font-bold text-on-surface group-hover:text-primary transition-colors">{{ $episode->title }}</h3>
+                                <p class="mt-4 line-clamp-2 text-sm text-on-surface-variant">{{ $episode->description }}</p>
                             </div>
-                        </div>
+                            <div class="mt-8 flex items-center justify-between">
+                                <span class="text-sm font-bold">{{ $episode->duration ?: 'WATCH' }}</span>
+                                <span class="material-symbols-outlined text-primary">play_circle</span>
+                            </div>
+                        @endif
+                    </a>
+                @empty
+                    <div class="lg:col-span-3 rounded-xl border border-outline-variant/20 bg-surface-container-low p-12 text-center">
+                        <span class="material-symbols-outlined text-5xl text-primary">podcasts</span>
+                        <h3 class="mt-6 font-headline text-2xl font-bold text-on-surface">No Episodes Published Yet</h3>
+                        <p class="mx-auto mt-3 max-w-md text-sm text-on-surface-variant">Publish podcast episodes from the dashboard and they will appear here automatically.</p>
                     </div>
-                </div>
-
-                <div class="group cursor-pointer bg-surface-container-low rounded-xl p-8 rim-light transition-transform hover:-translate-y-2 flex flex-col justify-between">
-                    <div>
-                        <div class="mb-6 h-48 overflow-hidden rounded-lg">
-                            <img alt="Investment" class="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-700" data-alt="Close up of a gold luxury watch on a dark surface, symbolizing wealth and time, minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG-xYqgzNm6cD9s0RTjErlaIOVgroZkdPlzSVoV8y7xJP97ECHOF_p_OX2AcsnRsIdz5ROrqxuz5sYnIxeH0js23i-LFbNNbDIgwgJ3bO12Bd-LT2Tp4-Y166DiC6QYuFoy-By5Iaa1fraz1lagxYuNKuU9XYMyfycLRluX-V7dnCDNWAl-jjTSFdYRjcoX3zaIBEQ59LKcM1ZNl-x2spUfKkDjiPTUXcvFkoD5qSjje6VMovrBbN8MyfUjAclH9UKFv0Vn7rNErLm"/>
-                        </div>
-                        <div class="flex justify-between items-start gap-4 mb-4">
-                            <span class="px-3 py-1 bg-secondary-container/30 text-on-secondary-container text-[10px] font-bold uppercase tracking-widest rounded">Investment</span>
-                            <span class="text-on-surface-variant text-xs">OCT 18, 2024</span>
-                        </div>
-                        <h3 class="font-headline text-2xl font-bold text-on-surface group-hover:text-primary transition-colors">The Sovereign Portfolio</h3>
-                    </div>
-                    <div class="mt-8 flex items-center justify-between">
-                        <span class="text-sm font-bold">32 MINS</span>
-                        <span class="material-symbols-outlined text-primary">play_circle</span>
-                    </div>
-                </div>
-
-                <div class="group cursor-pointer bg-surface-container-low rounded-xl p-8 rim-light transition-transform hover:-translate-y-2 flex flex-col justify-between">
-                    <div>
-                        <div class="mb-6 h-48 overflow-hidden rounded-lg">
-                            <img alt="Leadership" class="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-700" data-alt="Top down view of a minimalist boardroom table with one single notebook and a gold pen, dramatic shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmqy9lAhXVKIwyl6cRsPnMcaZCDc-7HppB2uPNWJRFjotk73N7GVjDwH3isRGOiFR1V_YiuUOrMVfkxZKSN04YHD0wn77L9VWuKyAugZmHxlfIT-ISQ1FbL0-yppQQpKWdITAODLtkwuNCvk1viWaKJSpsSXvcKx4nEGGKUINPi9xjQcD3k7ObHL9XEgdhPEpr304RyTxaC3p0hExE0h6P3D7Ei3a7E30FBlMAiCRa9a2RYdX5YLGvzHNyTevtjGPb0j9yFttVzTT6"/>
-                        </div>
-                        <div class="flex justify-between items-start gap-4 mb-4">
-                            <span class="px-3 py-1 bg-secondary-container/30 text-on-secondary-container text-[10px] font-bold uppercase tracking-widest rounded">Leadership</span>
-                            <span class="text-on-surface-variant text-xs">OCT 12, 2024</span>
-                        </div>
-                        <h3 class="font-headline text-2xl font-bold text-on-surface group-hover:text-primary transition-colors">Blueprints of Power</h3>
-                    </div>
-                    <div class="mt-8 flex items-center justify-between">
-                        <span class="text-sm font-bold">55 MINS</span>
-                        <span class="material-symbols-outlined text-primary">play_circle</span>
-                    </div>
-                </div>
-
-                <div class="group cursor-pointer bg-surface-container-low rounded-xl p-8 rim-light transition-transform hover:-translate-y-2 flex flex-col justify-between">
-                    <div>
-                        <div class="mb-6 h-48 overflow-hidden rounded-lg">
-                            <img alt="Strategy" class="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-700" data-alt="Dark abstract pattern resembling flowing lava or molten gold, deep textures and high contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxR3pYODphnga9V8tSbZK2A9cszttahgdISAmgkTK4DwKJv8ryciuUctP2zIjH_yIseSuOrVl3g8hDeOC_2gyzhRk_H23H1K2EQn61qkvQX61Cwa-KSeOpm3Muk_EQLKcL2cIYhqlDrVemDE01NucyDLavH874UH3HHq7KBM0mttFthR_G8i5mwtAfwJnXuT7uOBfAluXVAH3n_AeDHJZeJmYBLRMIryBN8xcYGKtBJo57uSi1h-uRk7SrSCyUhX_MUpyebQtE_H0O"/>
-                        </div>
-                        <div class="flex justify-between items-start gap-4 mb-4">
-                            <span class="px-3 py-1 bg-secondary-container/30 text-on-secondary-container text-[10px] font-bold uppercase tracking-widest rounded">Strategy</span>
-                            <span class="text-on-surface-variant text-xs">OCT 05, 2024</span>
-                        </div>
-                        <h3 class="font-headline text-2xl font-bold text-on-surface group-hover:text-primary transition-colors">The Invisible Hand</h3>
-                    </div>
-                    <div class="mt-8 flex items-center justify-between">
-                        <span class="text-sm font-bold">41 MINS</span>
-                        <span class="material-symbols-outlined text-primary">play_circle</span>
-                    </div>
-                </div>
+                @endforelse
             </div>
+
+            @if ($podcastEpisodes->hasPages())
+                <div class="mt-14 flex justify-end gap-3">
+                    @if ($podcastEpisodes->previousPageUrl())
+                        <a class="rounded border border-outline-variant/30 px-4 py-2 text-xs font-bold uppercase tracking-widest text-on-surface-variant transition-colors hover:border-primary hover:text-primary" href="{{ $podcastEpisodes->previousPageUrl() }}#episodes">Prev</a>
+                    @endif
+                    @if ($podcastEpisodes->nextPageUrl())
+                        <a class="rounded border border-primary px-4 py-2 text-xs font-bold uppercase tracking-widest text-primary transition-colors hover:bg-primary hover:text-on-primary" href="{{ $podcastEpisodes->nextPageUrl() }}#episodes">Next</a>
+                    @endif
+                </div>
+            @endif
         </div>
     </section>
 
@@ -282,12 +265,24 @@
             <p class="text-on-surface-variant text-lg max-w-xl mx-auto mb-12 font-light">
                 Join the inner circle of global leaders. Receive episode transcripts, exclusive deep-dives, and early access to the Iloge Shop.
             </p>
-            <form class="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto mb-16">
-                <input class="flex-1 bg-transparent border-b border-outline-variant/30 text-on-surface placeholder:text-on-surface-variant/40 py-4 focus:outline-none focus:border-primary transition-colors font-label text-sm tracking-widest" placeholder="ENTER YOUR EMAIL" type="email"/>
-                <button class="liquid-gold-gradient px-12 py-4 rounded-md text-on-primary font-bold uppercase text-xs tracking-[0.2em] hover:opacity-90 transition-all">
+            @if (session('newsletter_success'))
+                <div class="mx-auto mb-8 max-w-2xl rounded-xl border border-primary/20 bg-primary/10 px-5 py-4 text-sm font-semibold text-primary">
+                    {{ session('newsletter_success') }}
+                </div>
+            @endif
+            <form class="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto mb-4" method="post" action="{{ route('newsletter.store') }}">
+                @csrf
+                <input type="hidden" name="source" value="podcast">
+                <input class="flex-1 bg-transparent border-b border-outline-variant/30 text-on-surface placeholder:text-on-surface-variant/40 py-4 focus:outline-none focus:border-primary transition-colors font-label text-sm tracking-widest" name="email" placeholder="ENTER YOUR EMAIL" type="email" value="{{ old('email') }}" required/>
+                <button class="liquid-gold-gradient px-12 py-4 rounded-md text-on-primary font-bold uppercase text-xs tracking-[0.2em] hover:opacity-90 transition-all" type="submit">
                     Subscribe
                 </button>
             </form>
+            @error('email')
+                <p class="mb-12 text-sm text-error">{{ $message }}</p>
+            @else
+                <p class="mb-12 text-[10px] uppercase tracking-widest text-on-surface-variant/50">No noise. Just sovereign insights.</p>
+            @enderror
             <div class="grid grid-cols-2 sm:flex sm:justify-center gap-8 sm:gap-10">
                 <div class="flex flex-col items-center gap-2 group cursor-pointer">
                     <div class="w-14 h-14 rounded-full bg-surface flex items-center justify-center border border-outline-variant/20 group-hover:border-primary transition-colors">

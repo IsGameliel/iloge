@@ -8,6 +8,7 @@
         ['key' => 'podcast', 'label' => 'Podcast Curation', 'icon' => 'mic', 'route' => 'dashboard.podcast'],
         ['key' => 'Shop', 'label' => 'Shop Management', 'icon' => 'shopping_cart', 'route' => 'dashboard.shop'],
         ['key' => 'customers', 'label' => 'Customers', 'icon' => 'group', 'route' => 'dashboard.customers'],
+        ['key' => 'subscribers', 'label' => 'Subscribers', 'icon' => 'mark_email_read', 'route' => 'dashboard.subscribers'],
     ];
 @endphp
 

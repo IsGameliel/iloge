@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BlogPost;
 use App\Models\GalleryItem;
+use App\Models\PodcastEpisode;
 use App\Models\ShopProduct;
 use Illuminate\View\View;
 
@@ -36,7 +37,25 @@ class FrontController extends Controller
 
     public function podcast(): View
     {
-        return view('podcast');
+        $podcastEpisodes = PodcastEpisode::query()
+            ->where('is_published', true)
+            ->latest('published_at')
+            ->paginate(9);
+
+        return view('podcast', [
+            'podcastEpisodes' => $podcastEpisodes,
+            'featuredPodcastEpisode' => PodcastEpisode::query()
+                ->where('is_published', true)
+                ->where('is_featured', true)
+                ->latest('published_at')
+                ->first() ?? $podcastEpisodes->first(),
+            'podcastCategories' => PodcastEpisode::query()
+                ->where('is_published', true)
+                ->select('category')
+                ->distinct()
+                ->orderBy('category')
+                ->pluck('category'),
+        ]);
     }
 
     public function blog(): View

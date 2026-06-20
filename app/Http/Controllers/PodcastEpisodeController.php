@@ -16,7 +16,7 @@ class PodcastEpisodeController extends Controller
 
         $data['user_id'] = $request->user()->id;
         $data['youtube_id'] = $youtubeId;
-        $data['thumbnail_url'] = $data['thumbnail_url'] ?: "https://img.youtube.com/vi/{$youtubeId}/hqdefault.jpg";
+        $data['thumbnail_url'] = $data['thumbnail_url'] ?: $this->youtubeThumbnailUrl($youtubeId);
         $data['is_published'] = $request->boolean('is_published');
         $data['is_featured'] = $request->boolean('is_featured');
         $data['published_at'] = $data['is_published'] ? now() : null;
@@ -34,7 +34,7 @@ class PodcastEpisodeController extends Controller
         $youtubeId = $this->youtubeIdFromUrl($data['youtube_url']);
 
         $data['youtube_id'] = $youtubeId;
-        $data['thumbnail_url'] = $data['thumbnail_url'] ?: "https://img.youtube.com/vi/{$youtubeId}/hqdefault.jpg";
+        $data['thumbnail_url'] = $data['thumbnail_url'] ?: $this->youtubeThumbnailUrl($youtubeId);
         $data['is_published'] = $request->boolean('is_published');
         $data['is_featured'] = $request->boolean('is_featured');
 
@@ -102,5 +102,10 @@ class PodcastEpisodeController extends Controller
         throw ValidationException::withMessages([
             'youtube_url' => 'Enter a valid YouTube video link.',
         ]);
+    }
+
+    private function youtubeThumbnailUrl(string $youtubeId): string
+    {
+        return "https://i.ytimg.com/vi/{$youtubeId}/hqdefault.jpg";
     }
 }

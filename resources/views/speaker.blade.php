@@ -182,7 +182,7 @@
 
 <section class="relative min-h-screen flex items-center overflow-hidden pt-20">
     <div class="absolute inset-0 z-0">
-        <img alt="Portrait of Iloge" class="w-full h-full object-cover opacity-60" data-alt="High-contrast cinematic portrait of a visionary African entrepreneur in a dark designer suit, with golden rim lighting against a minimalist background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU4jS3jJDq3gRwpasapVLZwl72OZ89_Q5E8sXCi-EmJ0Hww-pTyo1MsMxXm1fkKla9v-thPjNwnitXH5xP6F4m4MSVOqxYeJVDEgAt1LJyrLcL168ZdTX3x3yPXFf1KsUtRjxYQXadSKIZZS94OG32pWMxaFA3yU7s41vqKDi20qc5rwYYVzHCpCmGEfHE3bhPZMvDsu5NAwwqZ8xl9rEdrN3wiXOJeRD6scMO05B99Cqgw-m4GlfRfq6QZJ91ngFisZsN2OpvYh9c"/>
+        <img alt="Portrait of Iloge" class="w-full h-full object-cover opacity-60" src="{{ asset('images/about-banner.jpg') }}"/>
         <div class="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent"></div>
     </div>
     <div class="container mx-auto px-6 md:px-12 relative z-10">
@@ -212,7 +212,7 @@
         <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
             <div class="max-w-2xl">
                 <h2 class="text-5xl font-extrabold tracking-tighter mb-4">Signature <span class="text-primary">Keynotes</span></h2>
-                <p class="text-on-surface/50 text-lg">World-class insights tailored for visionary leadership and global summits.</p>
+                <p class="text-on-surface/50 text-lg">Inspiring Action. Transforming Audiences. Delivering Results.</p>
             </div>
             <div class="h-[1px] flex-grow bg-outline-variant/20 mb-4 hidden md:block"></div>
         </div>
@@ -300,7 +300,7 @@
             </div>
             <div class="relative hidden md:block">
                 <div class="aspect-[4/5] bg-surface-container-low rounded-xl overflow-hidden shadow-2xl">
-                    <img alt="Iloge on stage" class="w-full h-full object-cover opacity-80" data-alt="Realistic photograph of a professional speaker on a grand stage with dramatic golden stage lighting and a captive audience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU4jS3jJDq3gRwpasapVLZwl72OZ89_Q5E8sXCi-EmJ0Hww-pTyo1MsMxXm1fkKla9v-thPjNwnitXH5xP6F4m4MSVOqxYeJVDEgAt1LJyrLcL168ZdTX3x3yPXFf1KsUtRjxYQXadSKIZZS94OG32pWMxaFA3yU7s41vqKDi20qc5rwYYVzHCpCmGEfHE3bhPZMvDsu5NAwwqZ8xl9rEdrN3wiXOJeRD6scMO05B99Cqgw-m4GlfRfq6QZJ91ngFisZsN2OpvYh9c"/>
+                    <img alt="Iloge on stage" class="w-full h-full object-cover opacity-80" data-alt="Realistic photograph of a professional speaker on a grand stage with dramatic golden stage lighting and a captive audience." src="{{ asset('images/about-side.jpg') }}"/>
                     <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
                 </div>
             </div>

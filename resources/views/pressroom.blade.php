@@ -235,7 +235,7 @@
                         <img alt="Tech Focus" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105 cursor-pointer" data-alt="Extreme close up of futuristic architectural details, black brushed steel and gold trim reflecting soft ambient light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC23h3Ibk-4LAPdTZ94LhGKFldl20CZuY8Q6sYEleOSCdTIauDu7w4iYl78jqmUkYq8-vhqRGXCSsx6snDIXQMyg-o7B96ecJfITqXhuPatj9hItdJTVR1165WTNpg2UFA5_xLGw4HPCDCif7Osqc-dJ-boXp0lQqhhPRYjbnACX0UnWPTdh1UXPMuqiRVjHFAshtHeec4jQl-GhU1lnAvb0MSnBmC7xXIp4Xq-gStRcqaPIH5W0UR9LaNeNnIKT8h4nax2lVQZDdXZ"/>
                     </div>
                     <div class="min-h-[260px] lg:h-1/2 relative overflow-hidden rounded-xl">
-                        <img alt="Portrait Asset" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105 cursor-pointer" data-alt="African male entrepreneur working on a holographic display in a dark high-tech environment, warm gold light reflecting on his face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-i2A99sxXn0cMAl20rkE4Y3FuI8Kne4Znli9BjHhkZjBPYUDXEFCGGclJkpuuUuJSN4jDh5AjRaXgZlvp_RX17dhnms2kd1Q6NKP-J7bfOG6lfU83dTpONDxyQQo1Uprm3T-PelxBoWiml7XyVgXjkrAdwTW8Wsbga-fjNSAWufXckWsH6wwKz4QMBgb7dYmmKafZbomtCv4JSTKPEp13KVojpADBBzTuuPdd5HPXaAKz9dBPU4MpJJghm5nBUz9PmBGYCWI8Rm_I"/>
+                        <img alt="Portrait Asset" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105 cursor-pointer" data-alt="African male entrepreneur working on a holographic display in a dark high-tech environment, warm gold light reflecting on his face" src="{{ asset('images/about-side.jpg') }}"/>
                     </div>
                 </div>
             </div>
@@ -253,14 +253,15 @@
                             <span class="material-symbols-outlined text-primary">mail</span>
                             <div>
                                 <h4 class="font-bold text-sm tracking-widest uppercase mb-1">Press Relations</h4>
-                                <p class="text-on-surface/40 text-sm">press@iloge.com</p>
+                                <p class="text-on-surface/40 text-sm">press@onyekwelu-iloge.com</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
                             <span class="material-symbols-outlined text-primary">location_on</span>
                             <div>
                                 <h4 class="font-bold text-sm tracking-widest uppercase mb-1">HQ Operations</h4>
-                                <p class="text-on-surface/40 text-sm">Tower of Shadows, Level 88<br/>Global Digital District</p>
+                                <p class="text-on-surface/40 text-sm">Suite 4, 77 Lome Crescent Wuse Zone 7, FCT, Abuja.
+</p>
                             </div>
                         </div>
                     </div>

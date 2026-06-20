@@ -154,7 +154,7 @@
 <main class="pt-24">
     <section class="relative min-h-[870px] w-full overflow-hidden flex items-center px-6 md:px-12">
         <div class="absolute inset-0 z-0">
-            <img alt="Professional portrait" class="w-full h-full object-cover grayscale brightness-50 contrast-125" data-alt="Cinematic portrait of a distinguished professional African man in a dark tailored suit, dramatic low-key lighting, deep shadows, authoritative presence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAczzIAc2Sa8uTFH5nkYChhyZ9qFb2sEyKUs3OWsG-Z_QhIqde-GxNeUDeg9M9C1uyDnrZ28rlOfPE7oIF4aIR1xI_-0uj5gXPPCq1xBF8ysLyGfR_8iAeg9yezTELtnQMngR2tHi_bEJ6tKjqzMx7jsB7rHWz4M7qFc8oWlxFsxZveDZZkxq_B5mvvaJL3wqlXTZvYekBO5F-SxgfsmuyNVfIP_UfFSMuura8Jqy0_mKU3SqRkt01R3uMAUVH-E-ZjVYXb9oL6moXe"/>
+            <img alt="Professional portrait" class="w-full h-full object-cover grayscale brightness-50 contrast-125" data-alt="Cinematic portrait of a distinguished professional African man in a dark tailored suit, dramatic low-key lighting, deep shadows, authoritative presence." src="{{ asset('images/img.jpg') }}"/>
             <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/40 to-transparent"></div>
         </div>
         <div class="relative z-10 max-w-4xl">
@@ -166,7 +166,7 @@
                 {{ $featuredPodcastEpisode?->description ?? "An exclusive deep-dive into the silence of leadership. Discover how the world's most influential architects of industry build empires away from the noise." }}
             </p>
             <div class="flex flex-col sm:flex-row gap-6">
-                <a class="liquid-gold-gradient px-8 py-4 rounded-md text-on-primary font-bold tracking-tight hover:opacity-90 transition-all flex items-center justify-center gap-3" href="{{ $featuredPodcastEpisode?->youtube_url ?? '#episodes' }}" @if($featuredPodcastEpisode) target="_blank" rel="noreferrer" @endif>
+                <a class="liquid-gold-gradient px-8 py-4 rounded-md text-on-primary font-bold tracking-tight hover:opacity-90 transition-all flex items-center justify-center gap-3" href="{{ $featuredPodcastEpisode?->watch_url ?? '#episodes' }}" @if($featuredPodcastEpisode) target="_blank" rel="noreferrer" @endif>
                     <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
                     Listen Now
                 </a>
@@ -196,7 +196,7 @@
         <div class="max-w-[1920px] mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                 @forelse ($podcastEpisodes as $episode)
-                    <a class="{{ $loop->first ? 'lg:col-span-2 overflow-hidden p-0' : 'p-8' }} group bg-surface-container-low rounded-xl rim-light transition-transform hover:-translate-y-2 flex flex-col justify-between" href="{{ $episode->youtube_url }}" target="_blank" rel="noreferrer">
+                    <a class="{{ $loop->first ? 'lg:col-span-2 overflow-hidden p-0' : 'p-8' }} group bg-surface-container-low rounded-xl rim-light transition-transform hover:-translate-y-2 flex flex-col justify-between" href="{{ $episode->watch_url }}" target="_blank" rel="noreferrer">
                         @if ($loop->first)
                             <div class="flex flex-col md:flex-row h-full">
                                 <div class="w-full md:w-1/2 h-64 md:h-auto overflow-hidden">

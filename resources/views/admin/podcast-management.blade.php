@@ -41,10 +41,12 @@
                     <span class="material-symbols-outlined text-[12rem]" aria-hidden="true">youtube_activity</span>
                 </div>
                 <div class="relative z-10 flex flex-col gap-4 md:flex-row md:items-end">
-                    <label class="flex-1 space-y-2">
+                    <div class="flex-1 space-y-2">
                         <span class="font-headline text-[10px] font-bold uppercase tracking-widest text-primary">YouTube Episode URL</span>
-                        <input form="podcast-episode-form" class="font-headline w-full border-x-0 border-t-0 border-outline-variant/30 bg-transparent py-4 text-xl placeholder:text-on-surface/10 transition-colors focus:border-primary focus:ring-0" name="youtube_url" placeholder="https://www.youtube.com/watch?v=..." type="url" value="{{ old('youtube_url', $editingEpisode->youtube_url ?? '') }}" required>
-                    </label>
+                        <div class="font-headline w-full border-b border-outline-variant/30 py-4 text-sm text-on-surface/60">
+                            Edit the video link in the episode form to make sure the saved play URL updates correctly.
+                        </div>
+                    </div>
                     <button form="podcast-episode-form" type="submit" class="font-headline flex items-center justify-center gap-3 self-stretch rounded-lg border border-primary/10 bg-surface-container-high px-8 py-4 text-xs font-bold uppercase tracking-widest text-on-surface transition-all duration-300 hover:bg-surface-container-highest md:self-end">
                         {{ $isEditing ? 'Update Episode' : 'Integrate Episode' }}
                         <span class="material-symbols-outlined text-primary" aria-hidden="true">dynamic_feed</span>
@@ -108,7 +110,7 @@
             <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
                 @forelse ($podcastEpisodes as $episode)
                     <article class="group">
-                        <a class="block" href="{{ $episode->youtube_url }}" target="_blank" rel="noreferrer">
+                        <a class="block" href="{{ $episode->watch_url }}" target="_blank" rel="noreferrer">
                             <div class="relative mb-4 aspect-video overflow-hidden rounded-xl bg-surface-container-high">
                                 <img alt="{{ $episode->title }}" class="h-full w-full object-cover opacity-70 grayscale transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0 group-hover:opacity-100" src="{{ $episode->display_thumbnail }}">
                                 <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
@@ -194,6 +196,12 @@
                     @endif
 
                     <label class="block space-y-2">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-on-surface/50">YouTube URL</span>
+                        <input class="w-full border-x-0 border-t-0 border-outline-variant/30 bg-transparent px-0 py-2 text-on-surface placeholder:text-on-surface/20 transition-colors focus:border-primary focus:ring-0" name="youtube_url" placeholder="https://www.youtube.com/watch?v=..." type="url" value="{{ old('youtube_url', $editingEpisode->youtube_url ?? '') }}" required>
+                        <x-input-error class="mt-2" :messages="$errors->get('youtube_url')" />
+                    </label>
+
+                    <label class="block space-y-2">
                         <span class="text-[10px] font-bold uppercase tracking-widest text-on-surface/50">Title</span>
                         <input class="w-full border-x-0 border-t-0 border-outline-variant/30 bg-transparent px-0 py-2 text-on-surface placeholder:text-on-surface/20 transition-colors focus:border-primary focus:ring-0" name="title" placeholder="Episode title" type="text" value="{{ old('title', $editingEpisode->title ?? '') }}" required>
                         <x-input-error class="mt-2" :messages="$errors->get('title')" />
@@ -252,6 +260,7 @@
                         {{ $isEditing ? 'Update Episode' : 'Publish Episode' }}
                     </button>
                 </form>
+
             </div>
         </aside>
     </div>

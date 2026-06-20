@@ -163,7 +163,7 @@
 <main class="pt-24">
     <section class="relative min-h-[calc(100vh-6rem)] lg:min-h-[870px] w-full overflow-hidden flex items-center px-6 md:px-12 lg:px-24 py-24">
         <div class="absolute inset-0 z-0">
-            <img alt="Cinematic portrait of a sophisticated African professional man in a tailored dark suit, standing against a minimal architecturally shadowed background" class="w-full h-full object-cover object-top grayscale-[30%] brightness-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB52xEIcdDvWJBow8_Vdg2BICUYQFhiY8jJeRIGhPLCubEidx623nU1GC8HhwbUqx_kdh5l5s4IN3nb5aU4D6GPv5215-Tktg61gofUhFvsbXCrjeBWf3kHySwk523niJy_tCsxG_lr4KFXbb1MemEyDnE5DN_pkM1AfEx-HKVcIjuWJ_VXmUdetNsBZjhdf24shW8ZjTTnN2LnrdjiRyCL2QVJeNzGoHJ8fjOLwrvugSWDlkUcT-_463WeG7Mt-E-14xaekQkzkkk6"/>
+            <img alt="Cinematic portrait of a sophisticated African professional man in a tailored dark suit, standing against a minimal architecturally shadowed background" class="w-full h-full object-cover object-top grayscale-[30%] brightness-50" src="{{ asset('images/about-banner.jpg') }}"/>
             <div class="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent"></div>
         </div>

@@ -42,8 +42,13 @@ class PodcastEpisode extends Model
         return "https://www.youtube.com/embed/{$this->youtube_id}";
     }
 
+    public function getWatchUrlAttribute(): string
+    {
+        return "https://www.youtube.com/watch?v={$this->youtube_id}";
+    }
+
     public function getDisplayThumbnailAttribute(): string
     {
-        return $this->thumbnail_url ?: "https://img.youtube.com/vi/{$this->youtube_id}/hqdefault.jpg";
+        return $this->thumbnail_url ?: "https://i.ytimg.com/vi/{$this->youtube_id}/hqdefault.jpg";
     }
 }

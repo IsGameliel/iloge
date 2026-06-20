@@ -231,17 +231,18 @@
                     <div class="group">
                         <div class="flex items-center gap-4 mb-2">
                             <span class="material-symbols-outlined text-primary-fixed-dim" style="font-variation-settings: 'FILL' 1;">location_on</span>
-                            <p class="font-headline font-bold text-xl tracking-tight">London</p>
+                            <p class="font-headline font-bold text-xl tracking-tight">Abuja</p>
                         </div>
-                        <p class="text-on-surface-variant pl-10 font-light leading-relaxed">Mayfair Executive Suite,<br/>Berkeley Square, W1J</p>
+                        <p class="text-on-surface-variant pl-10 font-light leading-relaxed">Suite 4, 77 Lome Crescent <br>Wuse Zone 7, FCT,
+Abuja</p>
                     </div>
-                    <div class="group">
+                    <!-- <div class="group">
                         <div class="flex items-center gap-4 mb-2">
                             <span class="material-symbols-outlined text-primary-fixed-dim" style="font-variation-settings: 'FILL' 1;">location_on</span>
                             <p class="font-headline font-bold text-xl tracking-tight">Dubai</p>
                         </div>
                         <p class="text-on-surface-variant pl-10 font-light leading-relaxed">DIFC Gate Village 4,<br/>Strategic Business District</p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="bg-surface-container-high p-8 md:p-10 rounded-xl">
@@ -253,7 +254,7 @@
                         </div>
                         <div>
                             <p class="text-[10px] uppercase tracking-widest text-on-surface-variant/60 font-bold">Email Interface</p>
-                            <p class="text-lg font-medium">liaison@iloge.com</p>
+                            <p class="text-lg font-medium">bookonyekwelu2speak@gmail.com</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-6 group cursor-pointer">
@@ -262,19 +263,25 @@
                         </div>
                         <div>
                             <p class="text-[10px] uppercase tracking-widest text-on-surface-variant/60 font-bold">Secure Voice</p>
-                            <p class="text-lg font-medium">+971 4 456 2XXX</p>
+                            <p class="text-lg font-medium">070411612922</p>
                         </div>
                     </div>
-                    <div class="flex items-center gap-6 group cursor-pointer">
+                    <div class="flex items-start gap-6">
                         <div class="w-12 h-12 rounded-full border border-outline-variant/30 flex items-center justify-center group-hover:border-primary transition-colors">
                             <span class="material-symbols-outlined text-primary">share_reviews</span>
                         </div>
                         <div>
                             <p class="text-[10px] uppercase tracking-widest text-on-surface-variant/60 font-bold">Social Ecosystem</p>
-                            <div class="flex gap-4 mt-1">
-                                <span class="text-sm font-bold uppercase tracking-tighter hover:text-primary transition-colors">LinkedIn</span>
-                                <span class="text-sm font-bold uppercase tracking-tighter hover:text-primary transition-colors">X</span>
-                                <span class="text-sm font-bold uppercase tracking-tighter hover:text-primary transition-colors">Forbes</span>
+                            <div class="mt-2 space-y-3">
+                                <a class="block text-sm font-bold uppercase tracking-tighter transition-colors hover:text-primary" href="https://www.tiktok.com/@onyekwelu.iloge?_r=1&_t=ZS-961iPNelbGu" rel="noreferrer" target="_blank">
+                                    TikTok <span class="text-on-surface-variant normal-case tracking-normal font-medium">@onyekwelu.iloge</span>
+                                </a>
+                                <a class="block text-sm font-bold uppercase tracking-tighter transition-colors hover:text-primary" href="https://www.facebook.com/share/18SSFPEB5E/" rel="noreferrer" target="_blank">
+                                    Facebook <span class="text-on-surface-variant normal-case tracking-normal font-medium">@Onyekwelu ILOGE</span>
+                                </a>
+                                <a class="block text-sm font-bold uppercase tracking-tighter transition-colors hover:text-primary" href="https://www.instagram.com/onyekwelu.iloge?igsh=b21wdGk5aHNibHRu" rel="noreferrer" target="_blank">
+                                    Instagram <span class="text-on-surface-variant normal-case tracking-normal font-medium">@onyekwelu.iloge</span>
+                                </a>
                             </div>
                         </div>
                     </div>

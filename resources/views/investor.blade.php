@@ -320,9 +320,10 @@
 
     <section class="relative py-40 overflow-hidden" id="pitch">
         <div class="absolute inset-0 z-0">
-            <img class="w-full h-full object-cover object-top grayscale" alt="Visionary founder portrait" data-alt="Professional portrait of a visionary founder in a dark charcoal suit against a minimal dark background with warm rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOpPkUgXyURMg02Xq0BF4aqUEAEKqpR3XCOaILaZpKksoKO7UaPtTx6FGx_j7yNjEQ6bZRSFiEM8DGZKgyqk0z0qRav9gsDGW2gY0O-QLpiaY6dq6nBbM8qd3w0Jb898sU3KfHqZ45g1N_9WLxfwWDoKiUKBxBMKbqbVn9H6ubpP7ttxyp0mLS4s2FuR40jXmCELH6CXEdmVQ4D0P9PQBjqo3XWoD4W0m1YOlkjTu0ct2HJQBvLCfoDWnkFNxMeLc0Eti0imq6K-g8"/>
-            <div class="absolute inset-0 bg-surface/90"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(241,204,25,0.12),transparent_55%)]"></div>
+            <img class="h-full w-full scale-105 object-cover object-center grayscale opacity-45" alt="Visionary founder portrait" src="{{ asset('images/investor.jpg') }}"/>
+            <div class="absolute inset-0 bg-surface/70"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/35 to-transparent"></div>
         </div>
         <div class="relative z-10 max-w-screen-2xl mx-auto px-6 md:px-12 text-center">
             <h2 class="font-headline text-5xl md:text-7xl font-black tracking-tighter mb-8 italic">Ready to Shape <br/>the Shadows?</h2>
